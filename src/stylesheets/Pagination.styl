@@ -1,0 +1,61 @@
+.Pagination
+    margin 0
+    padding 0
+    display flex
+    flex-direction row
+    justify-content space-between
+    width 300px
+    margin-left auto
+    list-style none
+
+.Pagination__item
+    display flex
+    justify-content center
+    align-items center
+
+.Pagination__link
+    display inline-block
+    width 20px
+    height auto
+    color #333
+    font-size 1.2rem
+    padding 5px 10px
+    line-height 30px
+    border-radius 2px
+    text-align center
+    text-decoration none
+    &:hover
+        background-color rgba(0, 0, 0, 0.2)
+        transition 0.3s background-color ease
+    &--disabled,
+    &:disabled
+        cursor default
+        opacity 0.5
+        pointer-events none
+    &--nav
+        width 15px
+        height 15px
+        background-position 0 0
+        background-repeat no-repeat
+        background-size contain
+        &:hover
+            background-color transparent      
+    &--start
+        background-image url("../assets/first-page-icon.svg")
+    &--end
+        background-image url("../assets/first-page-icon.svg")
+        transform rotate(180deg)
+    &--previous
+        width 10px
+        height 10px
+        background-image url("../assets/previous-page-icon.svg")
+    &--next
+        width 10px
+        height 10px
+        background-image url("../assets/previous-page-icon.svg")
+        transform rotate(180deg)
+    &--active
+        background-color #ee6e73
+        color #ffffff
+        pointer-events none
+

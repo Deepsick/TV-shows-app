@@ -1,0 +1,45 @@
+.Table
+    width 100%
+    font-size 15px
+    border-collapse collapse
+    &:hover
+        transition box-shadow .25s
+        box-shadow 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+
+.Table__tr
+    border-bottom 1px solid #d0d0d0
+
+.Table__th,
+.Table__td
+    padding 15px 5px
+    display table-cell
+    text-align left
+    vertical-align middle
+    border-radius 2px
+
+.Table__td
+    &--description
+        width 290px
+
+.Table__th
+    &--description
+        width 290px
+    &--genres
+        width 120px
+    &--active
+        position relative
+        z-index 1
+        display inline-block
+        min-width 50px
+        padding-right 30px
+        color #ffffff
+        background-color #ee6e73
+        background-image url("../assets/arrow-down.svg") 
+        background-position 93% 50%
+        background-repeat no-repeat
+        cursor pointer
+        overflow hidden
+        user-select none
+        vertical-align middle
+        will-change opacity, transform
+        transition all .3s ease-out
