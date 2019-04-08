@@ -5,10 +5,18 @@ import {
   FETCH_SHOWS_SUCCESS,
   FETCH_SHOWS_INFO_FAILED,
   FETCH_POSTER_SUCCESS,
+  SORT_SHOWS,
   GET_ERRORS
 } from "./actionTypes";
 
 import { getAmountOfPages } from "./paginationActions";
+
+export const sortShows = (shows) => {
+  return {
+    type: SORT_SHOWS,
+    shows: shows
+  }
+}
 
 const fetchShowsInfoStart = () => {
   return {
@@ -23,6 +31,7 @@ const fetchShowsSuccess = shows => {
   };
 };
 
+
 const fetchShowsInfoFailed = () => {
   return {
     type: FETCH_SHOWS_INFO_FAILED
@@ -36,7 +45,7 @@ const fetchPosterSuccess = showsWithPoster => {
   };
 };
 
-const fetchPosters = shows => {
+export const fetchPosters = shows => {
   return dispatch => {
     // set loading to true
     dispatch(fetchShowsInfoStart());
@@ -79,7 +88,7 @@ export const fetchShows = (page, limit, showType) => {
 
     // Retrieves tv shows with pagination and filters. Also gets shows id.
     // const paginationUrl = `https://api.trakt.tv/shows/${showType}?page=${page}&limit=${limit}`;
-    const sortUrl = `${baseUrl}${showType}?extended=full&page=${page}&limit=${limit}&ratings=70-100`;
+    const sortUrl = `${baseUrl}${showType}?extended=full&page=${page}&limit=${limit}`; //&ratings=70-100
     fetch(sortUrl, traktConfig)
       .then(res => {
         for (let header of res.headers.entries()) {
@@ -91,7 +100,7 @@ export const fetchShows = (page, limit, showType) => {
         return res.json();
       })
       .then(res => {
-        const shows = Array.from(res).map(show => show.show);
+        let shows = Array.from(res).map(show => show.show);
         dispatch(fetchShowsSuccess(shows));
         dispatch(fetchPosters(shows));
         // const showId = res[0].show.ids.tmdb;

@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store/store";
 
 import AppTitle from "./components/AppTitle/AppTitle";
-import SearchBar from "./components/SearchBar/SearchBar";
+import Search from './containers/Search/Search';
 import Table from "./components/Table/Table";
 import Container from "./components/Container/Container";
+import MainNav from  './components/MainNav/MainNav';
 
 import "./stylesheets/App.css";
 class App extends Component {
@@ -71,8 +72,9 @@ class App extends Component {
           <div className="App">
             <Container>
               <AppTitle />
-              <SearchBar />
-              <Table />
+              <MainNav />
+              <Route path='/' exact component={Table} />
+              <Route path= "/search" component={Search} />
             </Container>
           </div>
         </Router>

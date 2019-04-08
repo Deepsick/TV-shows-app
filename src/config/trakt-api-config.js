@@ -11,3 +11,4 @@ export const traktConfig = {
 };
 
 export const baseUrl = 'https://api.trakt.tv/shows/';
+export const searchUrl = 'https://api.trakt.tv/search/show?query=';

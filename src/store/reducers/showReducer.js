@@ -2,7 +2,9 @@ import {
   FETCH_SHOWS_INFO_FAILED,
   FETCH_SHOWS_SUCCESS,
   FETCH_SHOWS_INFO_START,
-  FETCH_POSTER_SUCCESS
+  FETCH_POSTER_SUCCESS,
+  SORT_SHOWS,
+  SEARCH_SHOWS_SUCCESS
 } from "../actions/actionTypes";
 
 
@@ -35,6 +37,11 @@ const reducer = (state = initialState, action) => {
         shows: action.showsWithPoster,
         loading: false
       };
+      case SORT_SHOWS:
+      return {
+        ...state,
+        shows: action.shows
+      }
     default:
       return state;
   }
