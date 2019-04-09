@@ -81,14 +81,19 @@ export const fetchPosters = shows => {
   };
 };
 
-export const fetchShows = (page, limit, showType) => {
+export const fetchShows = (page, limit, showType, filters) => {
   return dispatch => {
     // Changes loading property to True and shows Spinner during loading process
     dispatch(fetchShowsInfoStart());
 
     // Retrieves tv shows with pagination and filters. Also gets shows id.
     // const paginationUrl = `https://api.trakt.tv/shows/${showType}?page=${page}&limit=${limit}`;
-    const sortUrl = `${baseUrl}${showType}?extended=full&page=${page}&limit=${limit}`; //&ratings=70-100
+    let filtersString = Object.keys(filters).map(filter => `${filter}=${filters[filter]}`).join('&');
+    if (filtersString.length > 0) {
+      filtersString = '&' + filtersString;
+    }
+    const sortUrl = `${baseUrl}${showType}?extended=full&page=${page}&limit=${limit}${filtersString}`; //&ratings=70-100
+    console.log(sortUrl);
     fetch(sortUrl, traktConfig)
       .then(res => {
         for (let header of res.headers.entries()) {
@@ -100,9 +105,11 @@ export const fetchShows = (page, limit, showType) => {
         return res.json();
       })
       .then(res => {
-        let shows = Array.from(res).map(show => show.show);
-        dispatch(fetchShowsSuccess(shows));
-        dispatch(fetchPosters(shows));
+        if (showType === 'trending' || showType === 'anticipated') {
+          res = Array.from(res).map(show => show.show);
+        }
+        dispatch(fetchShowsSuccess(res));
+        dispatch(fetchPosters(res));
         // const showId = res[0].show.ids.tmdb;
         // this.getPoster(showId);
       })

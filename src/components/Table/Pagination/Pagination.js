@@ -55,14 +55,16 @@ const pagination = props => {
         .fill(0)
         .map(number => {
           lastPage--;
-          return (
-            <PaginationItem
-              key={lastPage}
-              page={lastPage}
-              currentPage={currentPage}
-              onClick={props.onClickHandler}
-            />
-          );
+          if (lastPage > 0) {
+            return (
+              <PaginationItem
+                key={lastPage}
+                page={lastPage}
+                currentPage={currentPage}
+                onClick={props.onClickHandler}
+              />
+            );
+          }
         })
         .reverse()}
       <li className="Pagination__item">
@@ -74,7 +76,7 @@ const pagination = props => {
             }
           )}
           to={"/?page=" + (currentPage + 1)}
-          onClick={() =>props.onClickHandler(currentPage + 1)}
+          onClick={() => props.onClickHandler(currentPage + 1)}
         >
           <span className="visually-hidden"> Next page</span>
         </Link>

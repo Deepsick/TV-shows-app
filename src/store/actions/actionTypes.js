@@ -13,6 +13,7 @@ export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 
 // sortReducer
 export const SET_SORTING_ORDER = 'SET_SORTING_ORDER';
+export const SET_SORTING_FILTERS = 'SET_SORTING_FILTERS';
 
 // searchReducer
 export const SET_SEARCH_QUERY = 'SET_SEARCH_QUERY';
