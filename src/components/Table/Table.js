@@ -3,7 +3,10 @@ import { connect } from "react-redux";
 import { Redirect, withRouter } from "react-router-dom";
 
 import { fetchShows, sortShows } from "../../store/actions/showsActions";
-import { setCurrentPage } from "../../store/actions/paginationActions";
+import {
+  setCurrentPage,
+  setCurrentLimit
+} from "../../store/actions/paginationActions";
 import {
   setSortingOrder,
   setSortingFilters
@@ -16,7 +19,6 @@ import Pagination from "./Pagination/Pagination";
 import Filters from "./Filters/Filters";
 import SearchField from "./SearchField/SearchField";
 import Spinner from "../Spinner/Spinner";
-import { timingSafeEqual } from "crypto";
 
 class Table extends Component {
   state = {
@@ -25,17 +27,22 @@ class Table extends Component {
   componentDidMount() {
     // const currentPage = this.props.location.search.split("=")[1];
     // this.props.setCurrentPage(currentPage);
-
-    const { page, itemsPerPage: limit } = this.props.pagination;
+    let { page, itemsPerPage: limit } = this.props.pagination;
     const { category: showType, ...filters } = this.props.sorting;
+    let queryPage = this.props.location.search.split("=")[1];
+    if (queryPage) {
+      this.props.setCurrentPage(queryPage);
+      page = queryPage;
+    }
     this.props.fetchShows(page, limit, showType, filters);
   }
 
   componentWillReceiveProps(nextProps) {
-    const { page, itemsPerPage: limit } = nextProps.pagination;
+    let { page, itemsPerPage: limit, amountOfPages } = nextProps.pagination;
     const { category: showType, ...filters } = nextProps.sorting;
     if (
       page !== this.props.pagination.page ||
+      limit !== this.props.pagination.itemsPerPage ||
       showType !== this.props.sorting.category ||
       filters.years !== this.props.sorting.years ||
       filters.ratings !== this.props.sorting.ratings ||
@@ -43,12 +50,22 @@ class Table extends Component {
     ) {
       this.props.fetchShows(page, limit, showType, filters);
     }
+    if (amountOfPages && amountOfPages < page) {
+      this.props.setCurrentPage(amountOfPages);
+      this.props.history.replace(`/?page=${amountOfPages}`);
+    }
   }
 
   onFilterChangeHandler = evt => {
     evt.preventDefault();
     const { name, value } = evt.target;
     this.props.setSortingFilters(name, value);
+  };
+
+  onPaginationSelectChangeHandler = evt => {
+    evt.preventDefault();
+    const { value } = evt.target;
+    this.props.setCurrentLimit(value);
   };
 
   onSearchInputChangeHandler = evt => {
@@ -72,19 +89,23 @@ class Table extends Component {
     const { shows, loading } = this.props.shows;
     let content = (
       <React.Fragment>
-        <Pagination
-          pagination={this.props.pagination}
-          onClickHandler={this.onClickHandler}
-        />
-        <SearchField
-          onChangeHandler={this.onSearchInputChangeHandler}
-          onSubmitHandler={this.onSubmitSearchHandler}
-          value={this.state.search}
-        />
         <Filters
           onFilterChangeHadnler={this.onFilterChangeHandler}
           values={this.props.sorting}
         />
+        <div className="flex-wrapper">
+          <SearchField
+            onChangeHandler={this.onSearchInputChangeHandler}
+            onSubmitHandler={this.onSubmitSearchHandler}
+            value={this.state.search}
+          />
+          <Pagination
+            pagination={this.props.pagination}
+            onClickHandler={this.onClickHandler}
+            onChangeNadler={this.onPaginationSelectChangeHandler}
+            value={this.props.pagination.itemsPerPage}
+          />
+        </div>
         <table className="Table">
           <TableHeader onClickHandler={this.onSortHandler} />
           <tbody>
@@ -115,6 +136,7 @@ export default connect(
     fetchShows,
     sortShows,
     setCurrentPage,
+    setCurrentLimit,
     setSortingOrder,
     setSearchQuery,
     setSortingFilters

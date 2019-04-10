@@ -10,6 +10,7 @@ export const FETCH_POSTER_SUCCESS = 'FETCH_POSTERS_SUCCESS';
 // Pagination
 export const GET_AMOUNT_OF_PAGES = 'GET_AMOUNT_OF_PAGES';
 export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+export const SET_CURRENT_LIMIT = 'SET_CURRENT_LIMIT';
 
 // sortReducer
 export const SET_SORTING_ORDER = 'SET_SORTING_ORDER';

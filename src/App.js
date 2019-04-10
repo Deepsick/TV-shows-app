@@ -72,7 +72,6 @@ class App extends Component {
           <div className="App">
             <Container>
               <AppTitle />
-              <MainNav />
               <Route path='/' exact component={Table} />
               <Route path= "/search" component={Search} />
             </Container>

@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { searchShows, setSearchQuery } from "../../store/actions/searchActions";
 
 import Table from "../../components/Search/Table/Table";
+import MainNav from '../../components/MainNav/MainNav';
 
 class Search extends Component {
   state = {
@@ -34,6 +35,7 @@ class Search extends Component {
   render() {
     return (
       <React.Fragment>
+        <MainNav />
         <Table
           search={this.props.search}
           loading={this.props.loading}

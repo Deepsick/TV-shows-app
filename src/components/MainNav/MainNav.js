@@ -6,10 +6,7 @@ const mainNav = () => {
       <nav>
     <ul>
         <li>
-            <NavLink to='/'>Main</NavLink>
-        </li>
-        <li>
-            <NavLink to={'/search' + `?query=`}>Search</NavLink>
+            <NavLink to='/'>Back</NavLink>
         </li>
     </ul>
 

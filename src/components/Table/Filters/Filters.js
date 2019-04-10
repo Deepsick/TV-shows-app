@@ -3,10 +3,12 @@ import React from "react";
 const filters = props => {
   let currentYear = new Date().getFullYear() + 1;
   return (
-    <form>
-      <ul>
-        <li>
+    <form className="Filters">
+      <ul className="Filters__list">
+        <li className="Filters__item">
+          <label htmlFor="category">Category</label>
           <select
+            className="Filters__select"
             id="category"
             name="category"
             onChange={props.onFilterChangeHadnler}
@@ -16,10 +18,11 @@ const filters = props => {
             <option value="popular">popular</option>
             <option value="anticipated">anticipated</option>
           </select>
-          <label htmlFor="category">Category</label>
         </li>
-        <li>
+        <li className="Filters__item">
+          <label htmlFor="ratings">Ratings</label>
           <select
+            className="Filters__select"
             id="ratings"
             name="ratings"
             onChange={props.onFilterChangeHadnler}
@@ -29,10 +32,11 @@ const filters = props => {
             <option value="50-74">5- 7.4</option>
             <option value="0-50">Less than 5</option>
           </select>
-          <label htmlFor="ratings">Ratings</label>
         </li>
-        <li>
+        <li className="Filters__item">
+          <label htmlFor="years">Year</label>
           <select
+            className="Filters__select"
             id="years"
             name="years"
             onChange={props.onFilterChangeHadnler}
@@ -47,10 +51,11 @@ const filters = props => {
               );
             })}
           </select>
-          <label htmlFor="years">Year</label>
         </li>
-        <li>
+        <li className="Filters__item">
+          <label htmlFor="status">Status</label>
           <select
+            className="Filters__select"
             id="status"
             name="status"
             onChange={props.onFilterChangeHadnler}
@@ -59,7 +64,6 @@ const filters = props => {
             <option value="returning%20series">returning series</option>
             <option value="ended">ended</option>
           </select>
-          <label htmlFor="status">Status</label>
         </li>
       </ul>
     </form>

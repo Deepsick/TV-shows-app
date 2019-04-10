@@ -1,4 +1,8 @@
-import { GET_AMOUNT_OF_PAGES, SET_CURRENT_PAGE } from "../actions/actionTypes";
+import {
+  GET_AMOUNT_OF_PAGES,
+  SET_CURRENT_PAGE,
+  SET_CURRENT_LIMIT
+} from "../actions/actionTypes";
 
 const initialState = {
   page: 1,
@@ -14,12 +18,17 @@ const reducer = (state = initialState, action) => {
         ...state,
         amountOfPages: action.pagesAmount
       };
-    case SET_CURRENT_PAGE:    
+    case SET_CURRENT_PAGE:
       return {
         ...state,
         page: action.page
       };
-    default:          
+    case SET_CURRENT_LIMIT:
+      return {
+        ...state,
+        itemsPerPage: action.limit
+      };
+    default:
       return state;
   }
 };

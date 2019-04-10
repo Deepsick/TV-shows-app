@@ -2,8 +2,8 @@ import React from "react";
 
 const searchField = props => {
   return (
-    <form onSubmit={props.onSubmitHandler}>
-      <input
+    <form className='Search-field' onSubmit={props.onSubmitHandler}>
+      <input className='Search-field__input'
         type='search'
         id="search-input"
         placeholder="Search show"

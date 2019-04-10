@@ -5,7 +5,7 @@ import classnames from "classnames";
 import PaginationItem from "./PaginationItem/PaginationItem";
 
 const pagination = props => {
-  const {
+  let {
     amountOfPages,
     page: currentPage,
     amountOfPaginationLinks: linksAmount
@@ -21,8 +21,48 @@ const pagination = props => {
   if (currentPage >= 3 && currentPage <= amountOfPages - 2) {
     lastPage = currentPage + 3;
   }
-  return (
-    <ul className="Pagination">
+  if (lastPage > amountOfPages) {
+    lastPage = amountOfPages + 1;
+  }
+
+  let pagination = (
+    <ul className="Pagination" style={{ width: "600px" }}>
+      <li>
+        <form className="Filters">
+          <ul
+            className="Filters__list"
+            style={{ margin: "0", marginRight: "20px" }}
+          >
+            <li
+              className="Filters__item"
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center"
+              }}
+            >
+              <label
+                htmlFor="limit"
+                style={{ width: "200px", marginRight: "10px" }}
+              >
+                Shows per page
+              </label>
+              <select
+                style={{ margin: "0" }}
+                onChange={props.onChangeNadler}
+                className="Filters__select"
+                id="limit"
+                name="limit"
+                value={props.value}
+              >
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+              </select>
+            </li>
+          </ul>
+        </form>
+      </li>
       <li className="Pagination__item">
         <Link
           className={classnames(
@@ -31,7 +71,7 @@ const pagination = props => {
               "Pagination__link--disabled": currentPage === 1
             }
           )}
-          to="/"
+          to="/?page=1"
           onClick={() => props.onClickHandler(1)}
         >
           <span className="visually-hidden">To the beginning</span>
@@ -97,6 +137,8 @@ const pagination = props => {
       </li>
     </ul>
   );
+
+  return <React.Fragment>{amountOfPages > 1 ? pagination : ""}</React.Fragment>;
 };
 
 export default pagination;
