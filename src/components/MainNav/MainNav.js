@@ -3,14 +3,8 @@ import {NavLink} from 'react-router-dom';
 
 const mainNav = () => {
   return (
-      <nav>
-    <ul>
-        <li>
-            <NavLink to='/'>Back</NavLink>
-        </li>
-    </ul>
 
-      </nav>
+            <NavLink to='/' className='back-button'>Back</NavLink>
   )
 }
 export default mainNav;

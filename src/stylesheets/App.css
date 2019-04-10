@@ -280,8 +280,35 @@ input[type="radio"].visually-hidden {
   width: 600px;
   display: flex;
   height: 40px;
+  margin-bottom: 10px;
 }
 .Search-field__input {
   height: 100%;
   width: 100%;
+}
+.back-button {
+  position: relative;
+  display: block;
+  padding-left: 30px;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: #000;
+}
+.back-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 20px;
+  background-image: url("../assets/previous-page-icon.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: contain;
+}
+.back-button:hover {
+  color: #4d4d4d;
+}
+.back-button:hover::after {
+  background-image: url("../assets/back-button-hover.svg");
 }

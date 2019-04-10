@@ -22,7 +22,7 @@ const table = props => {
     table = <Spinner />;
   }
 
-  if (props.location.search === "") {
+  if (props.search.query === "") {
     table = (
       <React.Fragment>
         <p>'Search something...'</p>

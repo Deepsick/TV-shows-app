@@ -15,9 +15,9 @@ class App extends Component {
     img: null
   };
   getPoster(showId) {
-    // config for poster url
-    const config = {
-      baseUrl: "https://image.tmdb.org/t/p/",
+    // config for poster url 
+    const config = { 
+      baseUrl: "https://image.tmdb.org/t/p/", 
       posterSize: "original",
       filePath: null
     };

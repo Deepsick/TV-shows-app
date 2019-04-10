@@ -10,8 +10,14 @@ class Search extends Component {
   state = {
     search: ""
   };
+
   componentDidMount() {
-    this.props.searchShows(this.props.search.query);
+    let query = this.props.location.search.split('=')[1];
+    if (!query) {
+      query= this.props.search.query;
+    }
+    this.props.setSearchQuery(query);
+    this.props.searchShows(query);
   }
 
   componentWillReceiveProps(nextProps) {
