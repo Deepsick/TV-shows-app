@@ -4,7 +4,7 @@
     display flex
     flex-direction row
     justify-content space-between
-    width 350px
+    width 600px
     margin-left auto
     list-style none
 
@@ -17,15 +17,15 @@
     display inline-block
     width 40px
     height auto
-    color #333
-    font-size 1.2rem
+    color text-color 
+    font-size 20px
     padding 5px 10px
     line-height 30px
     border-radius 2px
     text-align center
     text-decoration none
     &:hover
-        background-color rgba(0, 0, 0, 0.2)
+        background-color rgba(text-color, 0.2)
         transition 0.3s background-color ease
     &--disabled,
     &:disabled
@@ -41,21 +41,21 @@
         &:hover
             background-color transparent      
     &--start
-        background-image url("../assets/first-page-icon.svg")
+        background-image url("./assets/first-page-icon.svg")
     &--end
-        background-image url("../assets/first-page-icon.svg")
+        background-image url("./assets/first-page-icon.svg")
         transform rotate(180deg)
     &--previous
         width 20px
         height 20px
-        background-image url("../assets/previous-page-icon.svg")
+        background-image url("./assets/previous-page-icon.svg")
     &--next
         width 20px
         height 20px
-        background-image url("../assets/previous-page-icon.svg")
+        background-image url("./assets/previous-page-icon.svg")
         transform rotate(180deg)
     &--active
-        background-color #ee6e73
-        color #ffffff
+        background-color active-color
+        color background-color
         pointer-events none
 

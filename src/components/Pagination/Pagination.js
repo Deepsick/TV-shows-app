@@ -26,7 +26,7 @@ const pagination = props => {
   }
 
   let pagination = (
-    <ul className="Pagination" style={{ width: "600px" }}>
+    <ul className="Pagination">
       <li>
         <form className="Filters">
           <ul

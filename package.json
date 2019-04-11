@@ -17,7 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "styles": "stylus -w ./src/stylesheets/App.styl -o ./src/stylesheets/App.css",
+    "styles": "stylus -w ./src/stylesheets/style.styl -o ./src/App.css",
     "dev": "concurrently \"npm run start\" \"npm run styles\""
   },
   "eslintConfig": {

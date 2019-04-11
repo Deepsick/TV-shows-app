@@ -1,9 +1,9 @@
-.Search-field
+.SearchField
     width 600px
     display flex
     height: 40px
     margin-bottom 10px
-.Search-field__input
+.SearchField__input
     height 100%
     width 100%
 .back-button
@@ -12,7 +12,7 @@
     padding-left 30px
     margin-bottom 20px
     text-decoration none
-    color #000
+    color text-color
     &::after
         content ''
         position absolute
@@ -20,14 +20,14 @@
         left 0
         bottom 0
         width 20px
-        background-image url("../assets/previous-page-icon.svg")
+        background-image url("./assets/previous-page-icon.svg")
         background-repeat no-repeat
         background-position 0 0
         background-size contain
     &:hover
-        color lighten(#000000, 30%)
+        color lighten(text-color, 30%)
         &::after
-            background-image url('../assets/back-button-hover.svg')
+            background-image url('./assets/back-button-hover.svg')
 
 
 

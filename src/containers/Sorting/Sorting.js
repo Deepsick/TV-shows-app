@@ -43,9 +43,9 @@ class Sorting extends Component {
         } else {
           this.props.setSortingFilters(
             queryParameter[0],
-            encodeURIComponent(queryParameter[1])
+            decodeURIComponent(queryParameter[1])
           );
-          filters[queryParameter[0]] = encodeURIComponent(queryParameter[1]);
+          filters[queryParameter[0]] = decodeURIComponent(queryParameter[1]);
         }
       }
     }
