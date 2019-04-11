@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 import { searchShows, setSearchQuery } from "../../store/actions/searchActions";
 
-import Table from "../../components/Search/Table/Table";
-import MainNav from '../../components/MainNav/MainNav';
+import SearchTable from "../../components//SearchTable/SearchTable";
 
 class Search extends Component {
   state = {
@@ -12,9 +12,9 @@ class Search extends Component {
   };
 
   componentDidMount() {
-    let query = this.props.location.search.split('=')[1];
+    let query = this.props.location.search.split("=")[1];
     if (!query) {
-      query= this.props.search.query;
+      query = this.props.search.query;
     }
     this.props.setSearchQuery(query);
     this.props.searchShows(query);
@@ -41,8 +41,10 @@ class Search extends Component {
   render() {
     return (
       <React.Fragment>
-        <MainNav />
-        <Table
+        <NavLink to="/" className="back-button">
+          Back
+        </NavLink>
+        <SearchTable
           search={this.props.search}
           loading={this.props.loading}
           onSubmitSearchHandler={this.onSubmitSearchHandler}

@@ -1,12 +1,12 @@
 import React from "react";
-import { Redirect, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 import TableHeader from "./TableHeader/TableHeader";
 import ShowList from "./ShowsList/ShowsList";
-import Spinner from "../../Spinner/Spinner";
-import SearchField from "../../Table/SearchField/SearchField";
+import Spinner from "../common/Spinner/Spinner";
+import SearchField from "../common/SearchField/SearchField";
 
-const table = props => {
+const searchTable = props => {
   const { searching, searchShows } = props.search;
   let table = (
     <React.Fragment>
@@ -42,4 +42,4 @@ const table = props => {
   );
 };
 
-export default withRouter(table);
+export default withRouter(searchTable);

@@ -3,8 +3,7 @@ import {
   FETCH_SHOWS_SUCCESS,
   FETCH_SHOWS_INFO_START,
   FETCH_POSTER_SUCCESS,
-  SORT_SHOWS,
-  SEARCH_SHOWS_SUCCESS
+  SORT_SHOWS
 } from "../actions/actionTypes";
 
 

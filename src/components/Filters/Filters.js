@@ -61,7 +61,7 @@ const filters = props => {
             onChange={props.onFilterChangeHadnler}
             value={props.values.status}
           >
-            <option value="returning%20series">returning series</option>
+            <option value="returning series">returning series</option>
             <option value="ended">ended</option>
           </select>
         </li>

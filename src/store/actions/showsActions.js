@@ -93,7 +93,6 @@ export const fetchShows = (page, limit, showType, filters) => {
       filtersString = '&' + filtersString;
     }
     const sortUrl = `${baseUrl}${showType}?extended=full&page=${page}&limit=${limit}${filtersString}`; //&ratings=70-100
-    console.log(sortUrl);
     fetch(sortUrl, traktConfig)
       .then(res => {
         for (let header of res.headers.entries()) {

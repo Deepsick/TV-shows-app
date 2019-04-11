@@ -1,19 +1,14 @@
-import { SET_SORTING_ORDER, SET_SORTING_FILTERS } from "../actions/actionTypes";
+import { SET_SORTING_FILTERS } from "../actions/actionTypes";
 
 const initialState = {
   category: "trending",
   ratings: "75-100",
-  status: "returning%20series",
+  status: "returning series",
   years: 2019
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_SORTING_ORDER:
-      return {
-        ...state,
-        orderByDesc: !state.orderByDesc
-      };
     case SET_SORTING_FILTERS:
       return {
         ...state,

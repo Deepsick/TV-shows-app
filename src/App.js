@@ -5,9 +5,8 @@ import store from "./store/store";
 
 import AppTitle from "./components/AppTitle/AppTitle";
 import Search from './containers/Search/Search';
-import Table from "./components/Table/Table";
+import Sorting from "./containers/Sorting/Sorting";
 import Container from "./components/Container/Container";
-import MainNav from  './components/MainNav/MainNav';
 
 import "./stylesheets/App.css";
 class App extends Component {
@@ -72,7 +71,7 @@ class App extends Component {
           <div className="App">
             <Container>
               <AppTitle />
-              <Route path='/' exact component={Table} />
+              <Route path='/' exact component={Sorting} />
               <Route path= "/search" component={Search} />
             </Container>
           </div>
