@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import TableHeader from "./TableHeader/TableHeader";
 import ShowList from "./ShowsList/ShowsList";
@@ -42,4 +42,11 @@ const searchTable = props => {
   );
 };
 
-export default withRouter(searchTable);
+searchTable.propTypes = {
+  search: PropTypes.object.isRequired,
+  value: PropTypes.string.isRequired,
+  onSubmitSearchHandler: PropTypes.func.isRequired,
+  onSearchInputChangeHandler: PropTypes.func.isRequired
+};
+
+export default searchTable;

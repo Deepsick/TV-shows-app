@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import { fetchShows } from "../../store/actions/showsActions";
 import {
@@ -146,6 +147,16 @@ const mapStateToProps = state => ({
   pagination: state.pagination,
   sorting: state.sorting
 });
+
+Sorting.propTypes = {
+  pagination: PropTypes.object.isRequired,
+  shows: PropTypes.object.isRequired,
+  sorting: PropTypes.object.isRequired,
+  fetchShows: PropTypes.func.isRequired,
+  setCurrentPage: PropTypes.func.isRequired,
+  setCurrentLimit: PropTypes.func.isRequired,
+  setSortingFilters: PropTypes.func.isRequired
+};
 
 export default connect(
   mapStateToProps,

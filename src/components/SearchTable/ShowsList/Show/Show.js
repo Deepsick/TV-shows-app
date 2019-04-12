@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const show = props => {
   const defaultPoster =
@@ -18,6 +19,11 @@ const show = props => {
       <td className="Table__td">{props.show.year}</td>
     </tr>
   );
+};
+
+show.propTypes = {
+  number: PropTypes.number.isRequired,
+  show: PropTypes.object.isRequired
 };
 
 export default show;

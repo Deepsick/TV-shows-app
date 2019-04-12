@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import classnames from "classnames";
+import PropTypes from "prop-types";
 
 import PaginationItem from "./PaginationItem/PaginationItem";
 
@@ -147,6 +148,13 @@ const pagination = props => {
   );
 
   return <React.Fragment>{pagination}</React.Fragment>;
+};
+
+pagination.propTypes = {
+  pagination: PropTypes.object.isRequired,
+  value: PropTypes.number.isRequired,
+  onClickHandler: PropTypes.func.isRequired,
+  onChangeNadler: PropTypes.func.isRequired
 };
 
 export default pagination;

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const filters = props => {
   let currentYear = new Date().getFullYear() + 1;
@@ -68,6 +69,11 @@ const filters = props => {
       </ul>
     </form>
   );
+};
+
+filters.propTypes = {
+  values: PropTypes.object.isRequired,
+  onFilterChangeHadnler: PropTypes.func.isRequired
 };
 
 export default filters;

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import { searchShows, setSearchQuery } from "../../store/actions/searchActions";
 
@@ -46,7 +47,6 @@ class Search extends Component {
         </NavLink>
         <SearchTable
           search={this.props.search}
-          loading={this.props.loading}
           onSubmitSearchHandler={this.onSubmitSearchHandler}
           onSearchInputChangeHandler={this.onSearchInputChangeHandler}
           value={this.state.search}
@@ -57,9 +57,14 @@ class Search extends Component {
 }
 
 const mapStateToProps = state => ({
-  search: state.search,
-  loading: state.shows
+  search: state.search
 });
+
+Search.propTypes = {
+  search: PropTypes.object.isRequired,
+  searchShows: PropTypes.func.isRequired,
+  setSearchQuery: PropTypes.func.isRequired
+};
 
 export default connect(
   mapStateToProps,
