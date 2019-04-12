@@ -1,11 +1,8 @@
 import {
-  FETCH_SHOWS_INFO_FAILED,
-  FETCH_SHOWS_SUCCESS,
-  FETCH_SHOWS_INFO_START,
-  FETCH_POSTER_SUCCESS,
-  SORT_SHOWS
+  FETCH_SHOWS_START,
+  FETCH_SHOWS_FAILED,
+  FETCH_SHOWS_SUCCESS
 } from "../actions/actionTypes";
-
 
 const initialState = {
   shows: null,
@@ -14,7 +11,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_SHOWS_INFO_START:
+    case FETCH_SHOWS_START:
       return {
         ...state,
         loading: true
@@ -25,22 +22,11 @@ const reducer = (state = initialState, action) => {
         loading: false,
         shows: action.shows
       };
-    case FETCH_SHOWS_INFO_FAILED:
+    case FETCH_SHOWS_FAILED:
       return {
         ...state,
         loading: false
       };
-    case FETCH_POSTER_SUCCESS:
-      return {
-        ...state,
-        shows: action.showsWithPoster,
-        loading: false
-      };
-      case SORT_SHOWS:
-      return {
-        ...state,
-        shows: action.shows
-      }
     default:
       return state;
   }
