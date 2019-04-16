@@ -14,7 +14,6 @@ import Filters from "../../components/Filters/Filters";
 import Table from "../../components/Table/Table";
 import SearchField from "../../components/common/SearchField/SearchField";
 import Spinner from "../../components/common/Spinner/Spinner";
-
 class Sorting extends Component {
   state = {
     search: ""

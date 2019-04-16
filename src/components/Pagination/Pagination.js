@@ -66,7 +66,6 @@ const pagination = props => {
       </li>
       {amountOfPages > 1 ? (
         <React.Fragment>
-          {" "}
           <li className="Pagination__item">
             <Link
               className={classnames(
@@ -139,7 +138,7 @@ const pagination = props => {
             >
               <span className="visually-hidden">To the end</span>
             </Link>
-          </li>{" "}
+          </li>
         </React.Fragment>
       ) : (
         ""

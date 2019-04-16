@@ -17,13 +17,17 @@ class Search extends Component {
     if (query) {
       this.props.setSearchQuery(query);
     } else {
-      this.props.searchShows(this.props.search.query);
+      const {query} = this.props.search; 
+      if (query) {
+        this.props.searchShows();
+      }
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.search.query !== this.props.search.query) {
-      this.props.searchShows(nextProps.search.query);
+    const {query} = nextProps.search
+    if (query !== this.props.search.query && query) {
+      this.props.searchShows(query);
     }
   }
 

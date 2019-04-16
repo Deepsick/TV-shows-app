@@ -27,7 +27,7 @@ const show = props => {
       <td className="Table__td  Table__td--episodes">
         {props.show.aired_episodes}
       </td>
-      <td className="Table__td">
+      <td className="Table__td  Table__td--rating">
         {props.show.rating === 0
           ? "not rated yet"
           : props.show.rating
@@ -35,7 +35,7 @@ const show = props => {
           : ""}
       </td>
       <td className="Table__td">{props.show.year}</td>
-      <td className="Table__td">
+      <td className="Table__td  Table__td--genres">
         {props.show.genres ? props.show.genres.join(", ") : ""}
       </td>
       <td className="Table__td">{props.show.status}</td>

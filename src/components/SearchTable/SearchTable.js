@@ -5,9 +5,10 @@ import TableHeader from "./TableHeader/TableHeader";
 import ShowList from "./ShowsList/ShowsList";
 import Spinner from "../common/Spinner/Spinner";
 import SearchField from "../common/SearchField/SearchField";
+import { isNull } from "util";
 
 const searchTable = props => {
-  const { searching, searchShows } = props.search;
+  const { searching, searchShows, query } = props.search;
   let table = (
     <React.Fragment>
       <table className="Table">
@@ -22,12 +23,18 @@ const searchTable = props => {
     table = <Spinner />;
   }
 
-  if (props.search.query === "") {
+  if (query === "") {
     table = (
       <React.Fragment>
-        <p>'Search something...'</p>
+        <p>Search something...</p>
       </React.Fragment>
     );
+  }
+
+  if (!isNull(searchShows) && searchShows.length === 0) {
+    table =  <React.Fragment>
+    <p>Sorry, no matches were found for your query...</p>
+  </React.Fragment>
   }
 
   return (
