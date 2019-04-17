@@ -8,17 +8,17 @@ import {
   setCurrentLimit
 } from "../../store/actions/paginationActions";
 import { setSortingFilters } from "../../store/actions/sortActions";
+import { setSearchQuery } from "../../store/actions/searchActions";
 
 import Pagination from "../../components/Pagination/Pagination";
 import Filters from "../../components/Filters/Filters";
 import Table from "../../components/Table/Table";
 import SearchField from "../../components/common/SearchField/SearchField";
 import Spinner from "../../components/common/Spinner/Spinner";
-class Sorting extends Component {
-  state = {
-    search: ""
-  };
+export class Sorting extends Component {
   componentDidMount() {
+    this.props.setSearchQuery("");
+
     let queryStringArray = this.props.location.search.split("&");
 
     if (queryStringArray.length !== 1) {
@@ -95,14 +95,9 @@ class Sorting extends Component {
 
   onSearchInputChangeHandler = evt => {
     evt.preventDefault();
-    this.setState({ search: evt.target.value });
-  };
-
-  onSubmitSearchHandler = evt => {
-    const { search } = this.state;
-    evt.preventDefault();
+    const search = evt.target.value;
+    this.props.setSearchQuery(search);
     this.props.history.push(`/search?query=${search}`);
-    this.setState({ search: "" });
   };
 
   onPageClickHandler = page => {
@@ -120,8 +115,7 @@ class Sorting extends Component {
         <div className="flex-wrapper">
           <SearchField
             onChangeHandler={this.onSearchInputChangeHandler}
-            onSubmitHandler={this.onSubmitSearchHandler}
-            value={this.state.search}
+            value={this.props.search.query}
           />
           <Pagination
             pagination={this.props.pagination}
@@ -144,17 +138,20 @@ class Sorting extends Component {
 const mapStateToProps = state => ({
   shows: state.shows,
   pagination: state.pagination,
-  sorting: state.sorting
+  sorting: state.sorting,
+  search: state.search
 });
 
 Sorting.propTypes = {
   pagination: PropTypes.object.isRequired,
   shows: PropTypes.object.isRequired,
   sorting: PropTypes.object.isRequired,
+  search: PropTypes.object.isRequired,
   fetchShows: PropTypes.func.isRequired,
   setCurrentPage: PropTypes.func.isRequired,
   setCurrentLimit: PropTypes.func.isRequired,
-  setSortingFilters: PropTypes.func.isRequired
+  setSortingFilters: PropTypes.func.isRequired,
+  setSearchQuery: PropTypes.func.isRequired
 };
 
 export default connect(
@@ -163,6 +160,7 @@ export default connect(
     fetchShows,
     setCurrentPage,
     setCurrentLimit,
-    setSortingFilters
+    setSortingFilters,
+    setSearchQuery
   }
 )(Sorting);

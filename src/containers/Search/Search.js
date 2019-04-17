@@ -8,41 +8,32 @@ import { searchShows, setSearchQuery } from "../../store/actions/searchActions";
 import SearchTable from "../../components//SearchTable/SearchTable";
 
 class Search extends Component {
-  state = {
-    search: ""
-  };
-
   componentDidMount() {
-    let query = this.props.location.search.split("=")[1];
+    const { query } = this.props.search;
     if (query) {
-      this.props.setSearchQuery(query);
+      this.props.searchShows(query);
     } else {
-      const {query} = this.props.search; 
-      if (query) {
-        this.props.searchShows();
+      let queryString = this.props.location.search.split("=")[1];
+      if (queryString) {
+        this.props.setSearchQuery(queryString);
       }
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    const {query} = nextProps.search
+    const { query } = nextProps.search;
     if (query !== this.props.search.query && query) {
       this.props.searchShows(query);
     }
   }
 
-  onSubmitSearchHandler = evt => {
-    evt.preventDefault();
-    const { search } = this.state;
-    this.props.setSearchQuery(search);
-    this.props.history.push(`/search?query=${search}`);
-    this.setState({ search: "" });
-  };
-
   onSearchInputChangeHandler = evt => {
     evt.preventDefault();
-    this.setState({ search: evt.target.value });
+    const search = evt.target.value;
+    this.props.setSearchQuery(search);
+    this.props.history.push(`/search?query=${search}`);
   };
+
   render() {
     return (
       <React.Fragment>
@@ -51,9 +42,8 @@ class Search extends Component {
         </NavLink>
         <SearchTable
           search={this.props.search}
-          onSubmitSearchHandler={this.onSubmitSearchHandler}
           onSearchInputChangeHandler={this.onSearchInputChangeHandler}
-          value={this.state.search}
+          value={this.props.search.query}
         />
       </React.Fragment>
     );

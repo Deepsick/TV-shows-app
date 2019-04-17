@@ -13,7 +13,19 @@ const showsList = props => {
   );
 
   if (props.shows.length === 0) {
-    showList = <p style={{position: 'relative', left: '500px', width: '300px', paddingTop: '20px', fontSize: '16px'}}>No matches were found</p>;
+    showList = (
+      <p
+        style={{
+          position: "relative",
+          left: "500px",
+          width: "300px",
+          paddingTop: "20px",
+          fontSize: "16px"
+        }}
+      >
+        No matches were found
+      </p>
+    );
   }
 
   return <React.Fragment>{showList}</React.Fragment>;

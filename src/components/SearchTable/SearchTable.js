@@ -32,16 +32,17 @@ const searchTable = props => {
   }
 
   if (!isNull(searchShows) && searchShows.length === 0) {
-    table =  <React.Fragment>
-    <p>Sorry, no matches were found for your query...</p>
-  </React.Fragment>
+    table = (
+      <React.Fragment>
+        <p>Sorry, no matches were found for your query...</p>
+      </React.Fragment>
+    );
   }
 
   return (
     <div>
       <SearchField
         onChangeHandler={props.onSearchInputChangeHandler}
-        onSubmitHandler={props.onSubmitSearchHandler}
         value={props.value}
       />
       {table}
@@ -52,7 +53,6 @@ const searchTable = props => {
 searchTable.propTypes = {
   search: PropTypes.object.isRequired,
   value: PropTypes.string.isRequired,
-  onSubmitSearchHandler: PropTypes.func.isRequired,
   onSearchInputChangeHandler: PropTypes.func.isRequired
 };
 

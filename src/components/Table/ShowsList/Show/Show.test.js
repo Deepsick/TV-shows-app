@@ -118,13 +118,13 @@ describe("<Show />", () => {
     expect(wrapper.find(".Table__td--rating").text()).toBe("8.29");
   });
 
-  it("should render default text intead of rating if rating is equal to zero ", () => {
+  it("should render default text instead of rating if rating is equal to zero ", () => {
     wrapper.setProps({ show: showWithoutRating });
     expect(wrapper.find(".Table__td--rating").text()).toBe("not rated yet");
   });
 
-  it('should render list of genres if genres propery exists', () => {
-    wrapper.setProps({show: show});
-    expect(wrapper.find('.Table__td--genres').text()).not.toBe('');
-  })
+  it("should render list of genres if genres propery exists", () => {
+    wrapper.setProps({ show: show });
+    expect(wrapper.find(".Table__td--genres").text()).not.toBe("");
+  });
 });

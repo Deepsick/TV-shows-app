@@ -8,8 +8,6 @@ import SearchTable from "./SearchTable";
 configure({ adapter: new Adapter() });
 
 describe("<SearchTable />", () => {
-  let wrapper;
-
   it("should render element without crashing", () => {
     shallow(
       <SearchTable
@@ -35,7 +33,6 @@ describe("<SearchTable />", () => {
     );
   });
 
-
   it("should render default text if there is no search query", () => {
     const wrapper = shallow(
       <SearchTable
@@ -45,8 +42,6 @@ describe("<SearchTable />", () => {
         onSearchInputChangeHandler={() => {}}
       />
     );
-    expect(wrapper.find("p").text()).toBe(
-      "Search something..."
-    );
+    expect(wrapper.find("p").text()).toBe("Search something...");
   });
 });

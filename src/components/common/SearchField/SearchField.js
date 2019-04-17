@@ -2,8 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const searchField = props => (
-  <form className="SearchField" onSubmit={props.onSubmitHandler}>
+  <form className="SearchField" onSubmit={evt => evt.preventDefault()}>
     <input
+      autoFocus
       className="SearchField__input"
       type="search"
       id="search-input"
@@ -19,8 +20,7 @@ const searchField = props => (
 
 searchField.propTypes = {
   value: PropTypes.string.isRequired,
-  onChangeHandler: PropTypes.func.isRequired,
-  onSubmitHandler: PropTypes.func.isRequired
+  onChangeHandler: PropTypes.func.isRequired
 };
 
 export default searchField;

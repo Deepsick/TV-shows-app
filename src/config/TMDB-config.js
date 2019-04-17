@@ -1,6 +1,6 @@
 import {apiKeyTMDB} from './keys';
  
-// get poster id
+// config for poster id
 export const idPosterConfig = {
   apiKeyTMDB,
   baseUrl: "https://api.themoviedb.org/3/tv/"

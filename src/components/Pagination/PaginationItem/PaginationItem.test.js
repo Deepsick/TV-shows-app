@@ -8,7 +8,7 @@ import PaginationItem from "./PaginationItem";
 
 configure({ adapter: new Adapter() });
 
-describe("<SearchTable />", () => {
+describe("<PaginationItem />", () => {
   it("should render element without crashing", () => {
     shallow(<PaginationItem page={2} currentPage={2} onClick={() => {}} />);
   });
