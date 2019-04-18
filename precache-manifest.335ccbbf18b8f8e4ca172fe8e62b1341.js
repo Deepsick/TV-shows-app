@@ -12,20 +12,20 @@ self.__precacheManifest = [
     "url": "/tv-shows-app/static/media/back-button-hover.6b56b616.svg"
   },
   {
-    "revision": "704c61dbb781cdfa69a6",
-    "url": "/tv-shows-app/static/js/runtime~main.b5b68f70.js"
+    "revision": "f7d615f6762c02d030d1",
+    "url": "/tv-shows-app/static/js/runtime~main.fbfdf222.js"
   },
   {
     "revision": "9117a2487a1656525a01",
     "url": "/tv-shows-app/static/js/main.a9a9c170.chunk.js"
   },
   {
-    "revision": "c6204e1a27da6bb5559c",
-    "url": "/tv-shows-app/static/js/4.bac582fc.chunk.js"
+    "revision": "356daf71f9f24ad7d4ab",
+    "url": "/tv-shows-app/static/js/4.6f08c3cd.chunk.js"
   },
   {
-    "revision": "9a8aa3bcad341dc17b6c",
-    "url": "/tv-shows-app/static/js/3.b7975902.chunk.js"
+    "revision": "589979012f122b0e80d5",
+    "url": "/tv-shows-app/static/js/3.3c1716cd.chunk.js"
   },
   {
     "revision": "13cecd05eabb35c516b1",
@@ -36,7 +36,7 @@ self.__precacheManifest = [
     "url": "/tv-shows-app/static/css/main.04795051.chunk.css"
   },
   {
-    "revision": "eb5759d2fc7013a829406dbda4c717a6",
+    "revision": "67d23684a7adc50455b863ecb94c265f",
     "url": "/tv-shows-app/index.html"
   }
 ];
