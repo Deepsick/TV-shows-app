@@ -36,7 +36,7 @@ self.__precacheManifest = [
     "url": "/tv-shows-app/static/css/main.04795051.chunk.css"
   },
   {
-    "revision": "67d23684a7adc50455b863ecb94c265f",
+    "revision": "a52cf14bfae5850572bb84ac503d5416",
     "url": "/tv-shows-app/index.html"
   }
 ];
