@@ -7,7 +7,7 @@ export const fetchPosters = (shows, successCallback) => {
     const posterPromises = shows.map(show => {
       //create url with poster id
       let posterUrl = `${idPosterConfig.baseUrl}${
-        show.ids.tmdb
+        show.ids.tmdb || 1
       }/images?api_key=${idPosterConfig.apiKeyTMDB}`;
       return fetch(posterUrl).then(response => response.json())
     });

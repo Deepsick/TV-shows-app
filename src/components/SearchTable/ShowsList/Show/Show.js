@@ -10,7 +10,7 @@ const show = props => {
       <td className="Table__td">{number}</td>
       <td className="Table__td">
         <img
-          src={show.poster ? show.poster : defaultPoster}
+          src={(show.poster && show.ids.tmdb) ? show.poster : defaultPoster}
           alt={show.title}
           width="200"
           height="200"
