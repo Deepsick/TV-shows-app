@@ -57,7 +57,8 @@ export class Sorting extends Component {
       showType !== this.props.sorting.category ||
       filters.years !== this.props.sorting.years ||
       filters.ratings !== this.props.sorting.ratings ||
-      filters.status !== this.props.sorting.status
+      filters.status !== this.props.sorting.status ||
+      filters.genres !== this.props.sorting.genres
     ) {
       let filtersString = "";
       for (let filter of Object.keys(filters)) {

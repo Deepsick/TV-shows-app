@@ -14,7 +14,7 @@ const show = props => {
 
   return (
     <tr className="Table__tr">
-      <td className="Table__td">{number}</td>
+      <td className="Table__td  Table__td--number">{number}</td>
       <td className="Table__td">
         <a href={show.trailer} target="_blank" rel="noopener noreferrer">
           <img
@@ -39,7 +39,7 @@ const show = props => {
       <td className="Table__td  Table__td--genres">
         {show.genres ? show.genres.join(", ") : ""}
       </td>
-      <td className="Table__td">{show.status}</td>
+      <td className="Table__td  Table__td--status">{show.status}</td>
     </tr>
   );
 };

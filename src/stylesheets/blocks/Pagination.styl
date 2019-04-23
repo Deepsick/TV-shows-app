@@ -4,7 +4,7 @@
     display flex
     flex-direction row
     justify-content space-between
-    width 600px
+    width 50%
     margin-left auto
     list-style none
 
@@ -59,3 +59,19 @@
         color background-color
         pointer-events none
 
+@media(max-width: 1250px)
+    .Pagination
+        width 100%
+        margin-top 20px
+    .Pagination__item
+        &--form
+            width 50%
+
+@media(max-width: 700px)
+    .Pagination
+        // flex-direction column
+        flex-wrap wrap
+    .Pagination__item
+        &--form
+            width 100%
+            margin-bottom 30px

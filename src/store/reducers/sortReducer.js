@@ -2,9 +2,10 @@ import { SET_SORTING_FILTERS } from "../actions/actionTypes";
 
 const initialState = {
   category: "trending",
-  ratings: "75-100",
-  status: "returning series",
-  years: 2019
+  ratings: "0-100",
+  status: "",
+  years: "",
+  genres: ""
 };
 
 const reducer = (state = initialState, action) => {

@@ -7,6 +7,7 @@ import store from "./store/store";
 import asyncComponent from "./hoc/asyncComponent/asyncComponent";
 import AppTitle from "./components/AppTitle/AppTitle";
 import Container from "./components/Container/Container";
+import GoToTopButton from "./components/GoToTopButton/GoToTopButton";
 
 import "./App.css";
 
@@ -27,6 +28,7 @@ class App extends Component {
               <AppTitle />
               <Route path="/" exact component={asyncSorting} />
               <Route path="/search" component={asyncSearch} />
+              <GoToTopButton />
             </Container>
           </div>
         </Router>

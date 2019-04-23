@@ -28,30 +28,16 @@ const pagination = props => {
 
   let pagination = (
     <ul className="Pagination">
-      <li>
-        <form className="Filters">
-          <ul
-            className="Filters__list"
-            style={{ margin: "0", marginRight: "20px" }}
-          >
-            <li
-              className="Filters__item"
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center"
-              }}
-            >
-              <label
-                htmlFor="limit"
-                style={{ width: "200px", marginRight: "10px" }}
-              >
+      <li className="Pagination__item  Pagination__item--form">
+        <form className="items-form">
+          <ul className="items-form__list">
+            <li className="select-group  items-form__item">
+              <label className="items-form__label" htmlFor="limit">
                 Shows per page
               </label>
               <select
-                style={{ margin: "0" }}
                 onChange={props.onChangeNadler}
-                className="Filters__select"
+                className="select-group__select  items-form__select"
                 id="limit"
                 name="limit"
                 value={props.value}
