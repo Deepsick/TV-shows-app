@@ -5,9 +5,10 @@ describe("sort reducer", () => {
   it("should return initial state", () => {
     expect(reducer(undefined, {})).toEqual({
       category: "trending",
-      ratings: "75-100",
-      status: "returning series",
-      years: 2019
+      ratings: "0-100",
+      status: "",
+      years: "",
+      genres: ""
     });
   });
 

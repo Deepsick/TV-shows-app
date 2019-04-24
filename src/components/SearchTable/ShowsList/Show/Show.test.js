@@ -10,7 +10,10 @@ configure({ adapter: new Adapter() });
 const show = {
   title: "The Act",
   year: 2019,
-  poster: "https://image.tmdb.org/t/p/original//vb1sQLC2MqfCPOFqHd8SyVsyDVB.jpg"
+  poster: "https://image.tmdb.org/t/p/original//vb1sQLC2MqfCPOFqHd8SyVsyDVB.jpg",
+  ids: {
+    tmdb: 1
+  }
 };
 
 const showWithoutPoster = {
