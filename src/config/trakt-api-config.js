@@ -1,4 +1,4 @@
-import {traktApiKey} from './keys';
+import { traktApiKey } from "./keys";
 
 const headers = new Headers({
   "Content-Type": "application/json",
@@ -11,5 +11,5 @@ export const traktConfig = {
   headers
 };
 
-export const baseUrl = 'https://api.trakt.tv/shows/';
-export const searchUrl = 'https://api.trakt.tv/search/show?query=';
+export const baseUrl = "https://api.trakt.tv/shows/";
+export const searchUrl = "https://api.trakt.tv/search/show?query=";

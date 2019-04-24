@@ -18,7 +18,7 @@ const show = props => {
       <td className="Table__td">
         <a href={show.trailer} target="_blank" rel="noopener noreferrer">
           <img
-            src={(show.poster && show.ids.tmdb) ? show.poster : defaultPoster}
+            src={show.poster && show.ids.tmdb ? show.poster : defaultPoster}
             alt={show.title}
             width="200"
             height="200"

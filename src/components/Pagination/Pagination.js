@@ -4,6 +4,7 @@ import classnames from "classnames";
 import PropTypes from "prop-types";
 
 import PaginationItem from "./PaginationItem/PaginationItem";
+import ItemsForm from "./ItemsForm/ItemsForm";
 
 const pagination = props => {
   let {
@@ -29,26 +30,7 @@ const pagination = props => {
   let pagination = (
     <ul className="Pagination">
       <li className="Pagination__item  Pagination__item--form">
-        <form className="items-form">
-          <ul className="items-form__list">
-            <li className="select-group  items-form__item">
-              <label className="items-form__label" htmlFor="limit">
-                Shows per page
-              </label>
-              <select
-                onChange={props.onChangeNadler}
-                className="select-group__select  items-form__select"
-                id="limit"
-                name="limit"
-                value={props.value}
-              >
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
-              </select>
-            </li>
-          </ul>
-        </form>
+        <ItemsForm value={props.value} onChangeNadler={props.onChangeNadler} />
       </li>
       {amountOfPages > 1 ? (
         <React.Fragment>

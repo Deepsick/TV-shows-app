@@ -1,5 +1,5 @@
-import {apiKeyTMDB} from './keys';
- 
+import { apiKeyTMDB } from "./keys";
+
 // config for poster id
 export const idPosterConfig = {
   apiKeyTMDB,

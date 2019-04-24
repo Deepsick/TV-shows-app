@@ -374,39 +374,39 @@ input[type="radio"].visually-hidden {
     margin-bottom: 30px;
   }
 }
-.items-form__list {
+.ItemsForm__list {
   margin: 0;
   padding: 0;
   margin-right: 20px;
   list-style: none;
 }
-.items-form__item {
+.ItemsForm__item {
   display: flex;
   flex-direction: row;
   align-items: center;
   width: 305px;
   margin: 0;
 }
-.items-form__label {
+.ItemsForm__label {
   width: 200px;
   marginRight: 10px;
 }
-.items-form__select {
+.ItemsForm__select {
   margin: 0;
 }
 @media (max-width: 1250px) {
-  .items-form {
+  .ItemsForm {
     width: 100%;
   }
-  .items-form__item {
+  .ItemsForm__item {
     width: 100%;
   }
 }
 @media (max-width: 700px) {
-  .items-form__item {
+  .ItemsForm__item {
     width: 100%;
   }
-  .items-form__list {
+  .ItemsForm__list {
     margin-right: 0;
   }
 }
@@ -583,10 +583,5 @@ input[type="radio"].visually-hidden {
   .Table__th--status,
   .Table__th--number {
     display: none;
-  }
-}
-@media (max-width: 900px) {
-  .flex-wrapper {
-    flex-direction: column;
   }
 }

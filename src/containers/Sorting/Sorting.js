@@ -85,7 +85,7 @@ export class Sorting extends Component {
     evt.preventDefault();
     const { name, value } = evt.target;
     this.props.setCurrentPage(1);
-    this.props.setSortingFilters(name, encodeURIComponent(value));
+    this.props.setSortingFilters(name, decodeURIComponent(value));
   };
 
   onPaginationSelectChangeHandler = evt => {
